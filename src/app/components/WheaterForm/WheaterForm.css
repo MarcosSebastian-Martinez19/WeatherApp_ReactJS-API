@@ -1,0 +1,49 @@
+.container-form {
+    background-color: #343d4b;
+    width: 390px;
+    height: 160px;
+    margin-left: 15px;
+}
+
+.search-wrapper {
+    border-radius: 20px;
+    background-color: transparent;
+    margin-bottom: 10px;
+    padding-right: 12px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 480px;
+    color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(136, 148, 171, 0.5), 0 24px 20px -24px rgba(71, 82, 107, 0.5);
+    overflow: hidden;
+}
+
+.search-input {
+    border: none;
+    flex: 1;
+    outline: none;
+    height: 100%;
+    padding: 0 20px;
+    font-size: 16px;
+    color: #fff;
+    background: transparent;
+}
+
+.button {
+    padding: .7rem 1rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.15px;
+    background-color: transparent;
+    color: #f9f9f9;
+    border: 1px solid #f9f9f9;
+    outline: none;
+}
+
+button:hover {
+    background: rgba(136, 148, 171, 0.5);
+}

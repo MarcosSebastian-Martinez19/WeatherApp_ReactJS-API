@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import WheaterInfo from "./components/wheaterInfo";
-import WheaterForm from "./components/WheaterForm";
+import WheaterInfo from "./components/wheaterInfo/wheaterInfo";
+import WheaterForm from "./components/WheaterForm/WheaterForm";
 
 import { WEATHER_KEY } from "./keys";
 
@@ -48,9 +48,9 @@ class App extends Component {
 
     render() {
         return (
-            <div className="container p-4">
-                <div className="row">
-                    <div className="col-md-4 mx-auto">
+            <div>
+                <div>
+                    <div>
                         <WheaterForm getWheater={this.getWheater}/>
                         <WheaterInfo {...this.state}/>
                     </div>
