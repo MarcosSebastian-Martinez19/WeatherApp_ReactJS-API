@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
-import WheaterInfo from "./components/wheaterInfo/wheaterInfo";
-import WheaterForm from "./components/WheaterForm/WheaterForm";
+import WeatherInfo from "./components/WeatherInfo/WeatherInfo";
+import WeatherForm from "./components/WeatherForm/WeatherForm";
 
 import { WEATHER_KEY } from "./keys";
+
+import "./App.css"
 
 
 class App extends Component {
@@ -15,10 +17,13 @@ class App extends Component {
         wind_speed: '',
         city: '',
         country: '',
+        temperature_max: '',
+        temperature_min: '',
+        icon: '',
         error: null
     }
 
-    getWheater = async e => {
+    getWeather = async e => {
 
         e.preventDefault();
 
@@ -27,12 +32,9 @@ class App extends Component {
         const cityValue = city.value;
         const countryValue = country.value;
 
-        // console.log(cityValue, countryValue)
-
         const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_KEY}&units=metric&lang=es`
         const response = await fetch(API_URL);
         const data = await response.json();
-        // console.log(data);
 
         this.setState({
             temperature: data.main.temp,
@@ -41,6 +43,9 @@ class App extends Component {
             wind_speed: data.wind.speed,
             city: data.name,
             country: data.sys.country,
+            temperature_max: data.main.temp_max,
+            temperature_min: data.main.temp_min,
+            icon: data.weather[0].icon,
             error: null
         });
 
@@ -48,14 +53,10 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <div>
-                        <WheaterForm getWheater={this.getWheater}/>
-                        <WheaterInfo {...this.state}/>
-                    </div>
+                <div className="App">
+                    <WeatherForm getWeather={this.getWeather}/>
+                    <WeatherInfo {...this.state}/>
                 </div>
-            </div>
         )
     };
 }
